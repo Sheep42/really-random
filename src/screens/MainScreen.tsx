@@ -1,37 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, StatusBar } from 'react-native';
 import { Text } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { roll } from '../api/random';
 import RollButton from '../components/RollButton';
+import RollList from '../components/RollList';
+import useRandom from '../hooks/useRandom';
 
 const MainScreen = () => {
 
-    const [errorMsg, setErrorMsg] = useState( '' );
-
-    const generateRandom = async () => {
-
-        try {
-
-            const res = await roll( 1, 6, 3 );
-
-            return res.data.result.random.data
-        
-        } catch( err ) {
-
-            console.log( err );
-            setErrorMsg( 'Encountered an error, please try again' );
-
-            return [];
-
-        }
-        
-    };
-
-    // generateRandom();
+    const [generateRandom, result, errorMsg] = useRandom();
 
     return (
         <SafeAreaView style={ styles.container }>
+          
             <StatusBar 
                 translucent
                 backgroundColor='transparent' 
@@ -43,8 +24,22 @@ const MainScreen = () => {
 
             <RollButton 
                 title="Roll d4"
-                onPress={ () => console.log( 'd4' ) } 
+                onPress={ () => {
+                        generateRandom( 1, 4, 1 );
+                    } 
+                }
             />
+
+            <RollList 
+                result={ result }
+            />
+ 
+            {
+                ( errorMsg ) ? 
+                    <Text style={ styles.error }>{ errorMsg }</Text>
+                : null
+            }
+            
         </SafeAreaView>
     );
 
@@ -66,6 +61,15 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#ffffff',
     },
+    error: {
+        padding: 20,
+        backgroundColor: '#ffffff',
+        color: '#f00f00',
+
+    },
+    text: {
+        color: '#ffffff',
+    }
 });
 
 export default MainScreen;
