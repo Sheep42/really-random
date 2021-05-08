@@ -27,6 +27,13 @@ export default () => {
         
     };
 
-    return [ generateRandom, result, errorMsg ] as const;
+
+    const clearResult = () => {
+
+        setResult( [] );
+
+    }
+
+    return [ generateRandom, clearResult, result, errorMsg ] as const;
 
 };
