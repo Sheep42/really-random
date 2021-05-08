@@ -7,7 +7,9 @@ import MainScreen from './src/screens/MainScreen';
 
 const stackNavigator = createStackNavigator({
   Main: MainScreen,
-});
+},
+{ headerMode: "none" }
+);
 
 const App = createAppContainer( stackNavigator );
 
