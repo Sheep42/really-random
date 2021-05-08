@@ -4,7 +4,7 @@ A true random dice roller using React Native, just because.
 
 Uses the [random.org](https://random.org) API to generate true random dice rolls.
 
-### Installing / Running
+## Installing / Running
 
 If you want to run this app, you need to create the file `src/utils/secrets.ts` and export your own random.org api key before you will be able to generate dice rolls.
 
@@ -13,10 +13,12 @@ export const API_KEY = 'your-api-key-here';
 ```
 
 `npm install -g expo` if you don't already have expo installed
+
 `npm install` to install dependencies
+
 `expo start` to run
 
-### FAQ
+## FAQ
 
 **Is this really necessary?** Nope. Just a project to familiarize myself with React Native.
 
