@@ -25,17 +25,16 @@ const RollButton = ( { title, onPress }: BtnProps ) => {
 
 const styles = StyleSheet.create({
     button: {
-        width: '25%',
-        textAlign: 'center',
-        alignSelf: 'center',
-        marginVertical: 30,
+        width: 100,
+        marginVertical: 15,
         paddingHorizontal: 20,
-        paddingVertical: 10,
+        paddingVertical: 12,
         backgroundColor: '#7ba3d1',
         borderRadius: 5,
     },
     buttonText: {
         fontSize: 16,
+        textAlign: 'center',
         color: '#ffffff',
     },
 });

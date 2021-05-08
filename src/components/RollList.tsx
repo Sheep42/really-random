@@ -11,13 +11,14 @@ const RollList = ( { result }: RollListProps )=> {
 
     return (
         <FlatList 
+            style={ styles.list }
             data={ result }
             keyExtractor={ ( item: any, index: number ) => {
                 return index.toString()
             }}
             renderItem={ ( {item} ) => {
                 return (
-                    <Text>{ item }</Text>
+                    <Text style={ styles.item }>{ item }</Text>
                 )
             }}
         />
@@ -26,6 +27,20 @@ const RollList = ( { result }: RollListProps )=> {
 }
 
 const styles = StyleSheet.create({
+
+    item: {
+
+        paddingVertical: 20,
+        backgroundColor: '#666666',
+        marginBottom: 1,
+        color: '#ffffff',
+        fontSize: 16,
+        textAlign: 'center',
+
+    },
+    list: {
+
+    },
 
 });
 
